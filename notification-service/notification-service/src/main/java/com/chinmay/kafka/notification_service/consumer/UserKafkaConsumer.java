@@ -28,4 +28,9 @@ public class UserKafkaConsumer {
     public void consume3(String message) {
         log.info("consume3: {}", message);
     }
+
+    @KafkaListener(topics = "user-created-topic")
+    public void consumeUserCreatedEvent(String message) {
+        log.info("consumeUserCreatedEvent: {}", message);
+    }
 }

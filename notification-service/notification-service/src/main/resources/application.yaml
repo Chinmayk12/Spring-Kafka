@@ -3,3 +3,8 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: ${spring.application.name}
+      # Use StringDeserializer since the listener methods expect a String parameter
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
